@@ -1,0 +1,26 @@
+:root:root {
+    --vp-layout-max-width: 1580px;
+    --vp-c-bg-alt: #fbfbfb;
+}
+
+.VPContent .VPDoc.has-aside .content-container {
+    max-width: 960px;
+}
+
+.VPContent .content-container .vitepress-demo-preview__naive-ui__container {
+    position: relative;
+}
+
+.vitepress-demo-preview__naive-ui__container .vitepress-demo-preview-description__btns {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 20;
+}
+
+.VPContent .content-container .vitepress-demo-preview__naive-ui__container .vitepress-demo-preview-preview .container {
+    height: 460px;
+}
+.VPContent .content-container .vitepress-demo-preview__naive-ui__container .vitepress-demo-preview-preview .gesture-scroll {
+    height: 360px;
+}

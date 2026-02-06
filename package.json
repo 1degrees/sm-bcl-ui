@@ -1,0 +1,59 @@
+{
+  "name": "@xfsm/bcl-ui",
+  "version": "1.0.0",
+  "description": "A Vue3 component library",
+  "type": "module",
+  "main": "./dist/sm-bcl-ui.cjs.js",
+  "module": "./dist/sm-bcl-ui.esm.js",
+  "types": "./dist/types/index.d.ts",
+
+  "exports": {
+    ".": {
+      "import": "./dist/sm-bcl-ui.esm.js",
+      "require": "./dist/sm-bcl-ui.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./dist/styles/index.css": {
+      "import": "./dist/styles/index.css",
+      "require": "./dist/styles/index.css"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter @xfsm/bcl-ui-examples run dev",
+    "docs:dev": "pnpm --filter @xfsm/bcl-ui-docs run dev",
+    "docs:build": "pnpm --filter @xfsm/bcl-ui-docs run build",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "build:components": "vite build --config vite.config.components.ts",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/test-utils": "^2.4.0",
+    "@vue/tsconfig": "^0.5.0",
+    "vitepress": "^1.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.20.0",
+    "less": "^4.2.0",
+    "sass": "^1.97.3",
+    "typescript": "~5.3.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.7.0",
+    "vitest": "^1.2.0",
+    "vue-tsc": "^1.8.0",
+    "vuepress": "^2.0.0-beta.67"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
