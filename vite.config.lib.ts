@@ -17,6 +17,7 @@ export default defineConfig({
     }
   },
   build: {
+    cssCodeSplit: false,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'SmBclUi',
@@ -26,8 +27,10 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue'],
       output: {
-        globals: {
-          vue: 'Vue'
+        globals: { vue: 'Vue' },
+        assetFileNames: 'theme/[name].[ext]',
+        banner: (chunk) => {
+          return ['index'].includes(chunk.name) ? `import "./theme/${chunk.name}.css"` : ''
         }
       }
     },

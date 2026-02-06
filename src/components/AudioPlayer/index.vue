@@ -90,8 +90,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, defineExpose } from 'vue'
 import type { AudioPlayerProps, AudioPlayerInstance } from './types'
-import './index.less'
-
 // Props
 const props = withDefaults(defineProps<AudioPlayerProps>(), {
   title: '',
@@ -305,7 +303,3 @@ watch(() => props.src, () => {
   isPlaying.value = false
 })
 </script>
-
-<style scoped>
-/* 组件内部样式 */
-</style>
