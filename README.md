@@ -123,35 +123,109 @@ export interface AudioPlayerSlots {
 
 全局变量定义在 `src/styles/variables.less` 文件中：
 
+色系结构
 ```less
-// 颜色变量
-@colors: {
-  primary: #4299e1;
-  secondary: #38b2ac;
-  success: #48bb78;
-  warning: #ed8936;
-  danger: #f56565;
-  dark: #2d3748;
-  light: #f7fafc;
-};
+// 主色调
+@color-primary: #007aff;
+@color-secondary: #5856d6;
+@color-success: #34c759;
+@color-warning: #ff9500;
+@color-error: #ff3b30;
 
-// 间距变量
-@spacing: {
-  xs: 4px;
-  sm: 8px;
-  md: 16px;
-  lg: 24px;
-  xl: 32px;
-};
+// 中性色
+@color-black: #000000;
+@color-white: #ffffff;
+@color-gray-50: #f9fafb;
+@color-gray-100: #f3f4f6;
+@color-gray-200: #e5e7eb;
+@color-gray-300: #d1d5db;
+@color-gray-400: #9ca3af;
+@color-gray-500: #6b7280;
+@color-gray-600: #4b5563;
+@color-gray-700: #374151;
+@color-gray-800: #1f2937;
+@color-gray-900: #111827;
 
-// 字体变量
-@font-size: {
-  xs: 12px;
-  sm: 14px;
-  md: 16px;
-  lg: 18px;
-  xl: 24px;
-};
+// 背景色
+@color-background-primary: #ffffff;
+@color-background-secondary: #f9fafb;
+@color-background-tertiary: #f3f4f6;
+
+// 文本色
+@color-text-primary: #111827;
+@color-text-secondary: #6b7280;
+@color-text-tertiary: #9ca3af;
+@color-text-inverse: #ffffff;
+
+// 边框色
+@color-border-primary: #e5e7eb;
+@color-border-secondary: #d1d5db;
+@color-border-focus: #007aff;
+```
+
+字体结构
+```less
+// 字体族定义
+@font-family-sans: 'SF Pro Display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+@font-family-mono: 'SF Mono, Monaco, Inconsolata, Roboto Mono, Consolas, "Courier New", monospace';
+
+// 字号定义
+@font-size-xs: 12px;
+@font-size-sm: 14px;
+@font-size-base: 16px;
+@font-size-lg: 18px;
+@font-size-xl: 20px;
+@font-size-2xl: 24px;
+@font-size-3xl: 30px;
+@font-size-4xl: 36px;
+
+// 字重定义
+@font-weight-light: 300;
+@font-weight-regular: 400;
+@font-weight-medium: 500;
+@font-weight-semibold: 600;
+@font-weight-bold: 700;
+
+// 行高定义
+@line-height-tight: 1.25;
+@line-height-normal: 1.5;
+@line-height-relaxed: 1.75;
+```
+
+间距结构
+```less
+@spacing-0: 0;
+@spacing-1: 4px;
+@spacing-2: 8px;
+@spacing-3: 12px;
+@spacing-4: 16px;
+@spacing-5: 20px;
+@spacing-6: 24px;
+@spacing-8: 32px;
+@spacing-10: 40px;
+@spacing-12: 48px;
+@spacing-16: 64px;
+@spacing-20: 80px;
+@spacing-24: 96px;
+```
+
+圆角系统
+```less
+@radius-0: 0;
+@radius-1: 4px;
+@radius-2: 8px;
+@radius-3: 12px;
+@radius-4: 16px;
+@radius-c: 50%;
+```
+
+阴影系统
+```less
+@shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+@shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+@shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+@shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+@shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 ```
 
 #### 3.2 组件中使用主题变量
