@@ -12,7 +12,8 @@
   "module": "dist/index.js",
   "dependencies": {
     "vue": "^3.3.9",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "@xfsm/bcl-ui": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",

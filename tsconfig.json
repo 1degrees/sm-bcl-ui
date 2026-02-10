@@ -20,7 +20,7 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@xfsm/bcl-ui": ["./src/index.ts"],
     }
   }
 }

@@ -6,7 +6,6 @@
   "main": "./dist/sm-bcl-ui.cjs.js",
   "module": "./dist/sm-bcl-ui.esm.js",
   "types": "./dist/types/index.d.ts",
-
   "exports": {
     ".": {
       "import": "./dist/sm-bcl-ui.esm.js",
@@ -27,7 +26,7 @@
     "docs:build": "pnpm --filter @xfsm/bcl-ui-docs run build",
     "build:lib": "vite build --config vite.config.lib.ts",
     "build:components": "vite build --config vite.config.components.ts",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint": "eslint ./src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json --composite false"
   },
   "dependencies": {

@@ -1,41 +1,15 @@
 <template>
-  <div class="audio-player-example">
-    <h2>AudioPlayer 音频播放器示例</h2>
-    
-    <div class="example-section">
-      <h3>基本用法</h3>
-      <AudioPlayer 
-        :src="audioSrc"
-        :title="audioTitle"
-        :artist="audioArtist"
-        :cover="audioCover"
-        :autoplay="false"
-        @play="handlePlay"
-        @pause="handlePause"
-        @ended="handleEnded"
-        @timeupdate="handleTimeUpdate"
-      />
-      <div class="example-info">
-        <p>状态: {{ playerStatus }}</p>
-        <p>当前时间: {{ currentTime }}s</p>
-      </div>
-    </div>
-    
-    <div class="example-section">
-      <h3>自定义样式</h3>
-      <AudioPlayer 
-        :src="audioSrc"
-        :title="audioTitle"
-        :artist="audioArtist"
-        :cover="audioCover"
-        :autoplay="false"
-        class="custom-audio-player"
-      />
-      <div class="example-info">
-        <p>自定义样式示例</p>
-      </div>
-    </div>
-  </div>
+  <AudioPlayer 
+    :src="audioSrc"
+    :title="audioTitle"
+    :artist="audioArtist"
+    :cover="audioCover"
+    :autoplay="false"
+    @play="handlePlay"
+    @pause="handlePause"
+    @ended="handleEnded"
+    @timeupdate="handleTimeUpdate"
+  />
 </template>
 
 <script setup lang="ts">
@@ -43,7 +17,7 @@ import { ref } from 'vue'
 import { AudioPlayer } from '@xfsm/bcl-ui'
 
 // 音频播放器测试数据
-const audioSrc = 'https://example.com/audio.mp3'
+const audioSrc = 'https://www.w3schools.com/html/horse.mp3'
 const audioTitle = '示例音乐'
 const audioArtist = '示例艺术家'
 const audioCover = 'https://example.com/cover.jpg'

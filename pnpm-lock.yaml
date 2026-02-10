@@ -57,6 +57,9 @@ importers:
 
   docs:
     dependencies:
+      '@xfsm/bcl-ui':
+        specifier: workspace:*
+        version: link:..
       vue:
         specifier: ^3.5.17
         version: 3.5.27(typescript@5.4.2)
@@ -85,6 +88,9 @@ importers:
 
   examples:
     dependencies:
+      '@xfsm/bcl-ui':
+        specifier: workspace:*
+        version: link:..
       vue:
         specifier: ^3.3.9
         version: 3.5.27(typescript@5.4.2)

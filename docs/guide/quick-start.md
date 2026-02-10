@@ -44,7 +44,7 @@ app.mount('#app')
 ```vue
 <template>
   <AudioPlayer 
-    src="https://example.com/audio.mp3"
+    src="https://www.soundjay.com/misc/sounds/thunder-2.mp3"
     title="示例音乐"
     artist="示例艺术家"
     cover="https://example.com/cover.jpg"
@@ -65,7 +65,7 @@ import '@xfsm/bcl-ui/dist/styles/index.css'
 import type { AudioPlayerProps } from '@xfsm/bcl-ui'
 
 const props: AudioPlayerProps = {
-  src: 'https://example.com/audio.mp3',
+  src: 'https://www.soundjay.com/misc/sounds/thunder-2.mp3',
   title: '示例音乐'
 }
 ```

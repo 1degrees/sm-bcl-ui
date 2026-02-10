@@ -1,42 +1,105 @@
 <template>
-  <div class="audio-player" ref="playerRef">
+  <div
+    ref="playerRef"
+    class="audio-player"
+  >
     <!-- 封面图片 -->
-    <div class="audio-cover" v-if="cover">
-      <img :src="cover" :alt="title" />
+    <div
+      v-if="cover"
+      class="audio-cover"
+    >
+      <img
+        :src="cover"
+        :alt="title"
+      >
     </div>
-    <div class="audio-cover" v-else>
+    <div
+      v-else
+      class="audio-cover"
+    >
       <!-- 默认封面 -->
       <div style="width: 100%; height: 100%; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#9ca3af"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="5 3 19 12 5 21 5 3" />
         </svg>
       </div>
     </div>
 
     <!-- 音频信息 -->
     <div class="audio-info">
-      <h3 class="audio-title">{{ title || '未知标题' }}</h3>
-      <p class="audio-artist">{{ artist || '未知艺术家' }}</p>
+      <h3 class="audio-title">
+        {{ title || '未知标题' }}
+      </h3>
+      <p class="audio-artist">
+        {{ artist || '未知艺术家' }}
+      </p>
     </div>
 
     <!-- 控制区域 -->
     <div class="audio-controls">
-      <button class="audio-play-btn" @click="togglePlay">
-        <svg v-if="!isPlaying" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+      <button
+        class="audio-play-btn"
+        @click="togglePlay"
+      >
+        <svg
+          v-if="!isPlaying"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="5 3 19 12 5 21 5 3" />
         </svg>
-        <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
+        <svg
+          v-else
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect
+            x="6"
+            y="4"
+            width="4"
+            height="16"
+          />
+          <rect
+            x="14"
+            y="4"
+            width="4"
+            height="16"
+          />
         </svg>
       </button>
     </div>
 
     <!-- 进度条区域 -->
     <div class="audio-progress">
-      <div class="progress-container" @click="handleProgressClick">
-        <div class="progress-bar" :style="{ width: `${progressPercentage}%` }"></div>
-        <div class="progress-handle" :style="{ left: `${progressPercentage}%` }"></div>
+      <div
+        class="progress-container"
+        @click="handleProgressClick"
+      >
+        <div
+          class="progress-bar"
+          :style="{ width: `${progressPercentage}%` }"
+        />
+        <div
+          class="progress-handle"
+          :style="{ left: `${progressPercentage}%` }"
+        />
       </div>
       <div class="time-display">
         <span class="current-time">{{ formatTime(currentTime) }}</span>
@@ -46,25 +109,71 @@
 
     <!-- 音量控制 -->
     <div class="audio-volume">
-      <button class="volume-btn" @click="toggleMute">
-        <svg v-if="isMuted || volume === 0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <line x1="23" y1="9" x2="17" y2="15"></line>
-          <line x1="17" y1="9" x2="23" y2="15"></line>
+      <button
+        class="volume-btn"
+        @click="toggleMute"
+      >
+        <svg
+          v-if="isMuted || volume === 0"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <line
+            x1="23"
+            y1="9"
+            x2="17"
+            y2="15"
+          />
+          <line
+            x1="17"
+            y1="9"
+            x2="23"
+            y2="15"
+          />
         </svg>
-        <svg v-else-if="volume < 0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <svg
+          v-else-if="volume < 0.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
         </svg>
-        <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        <svg
+          v-else
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
         </svg>
       </button>
-      <div class="volume-slider" @click="handleVolumeClick">
-        <div class="volume-bar" :style="{ width: `${(isMuted ? 0 : volume) * 100}%` }"></div>
-        <div class="volume-handle" :style="{ left: `${(isMuted ? 0 : volume) * 100}%` }"></div>
+      <div
+        class="volume-slider"
+        @click="handleVolumeClick"
+      >
+        <div
+          class="volume-bar"
+          :style="{ width: `${(isMuted ? 0 : volume) * 100}%` }"
+        />
+        <div
+          class="volume-handle"
+          :style="{ left: `${(isMuted ? 0 : volume) * 100}%` }"
+        />
       </div>
     </div>
 
@@ -83,7 +192,7 @@
       @timeupdate="handleTimeUpdate"
       @volumechange="handleVolumeChange"
       @error="handleError"
-    ></audio>
+    />
   </div>
 </template>
 

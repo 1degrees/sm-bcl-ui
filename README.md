@@ -93,26 +93,56 @@ src/
 ```typescript
 // 组件 Props 类型
 export interface AudioPlayerProps {
-  src: string;           // 音频地址
-  title?: string;        // 音频标题
-  autoPlay?: boolean;    // 是否自动播放
-  showControls?: boolean; // 是否显示控制栏
-  theme?: 'light' | 'dark'; // 主题
+  // 音频地址
+  src: string;
+  // 音频标题
+  title?: string;
+  // 是否自动播放
+  autoPlay?: boolean;
+  // 是否显示控制栏
+  showControls?: boolean;
+  // 主题
+  theme?: 'light' | 'dark';
 }
 
 // 组件 Events 类型
 export interface AudioPlayerEmits {
-  (e: 'play'): void;     // 播放事件
-  (e: 'pause'): void;    // 暂停事件
-  (e: 'ended'): void;    // 播放结束事件
-  (e: 'timeupdate', currentTime: number): void; // 时间更新事件
+  // 播放事件
+  (e: 'play'): void;     
+  // 暂停事件
+  (e: 'pause'): void;    
+  // 播放结束事件
+  (e: 'ended'): void;    
+  // 时间更新事件
+  (e: 'timeupdate', currentTime: number): void; 
 }
 
 // 组件 Slots 类型
 export interface AudioPlayerSlots {
-  default?: () => any;    // 默认插槽
-  controlBar?: () => any; // 控制栏插槽
+  // 默认插槽
+  default?: () => any;    
+  // 控制栏插槽
+  controlBar?: () => any; 
 }
+
+// 组件内置方法
+export interface AudioPlayerInstance {
+  // 切换播放/暂停状态
+  toggle: () => void;
+  // 跳转到指定时间（秒）
+  seek: (time: number) => void;
+  // 设置音量，范围 0-1
+  setVolume: (volume: number) => void;
+  // 设置静音状态
+  setMuted: (muted: boolean) => void;
+  // 获取当前播放时间（秒）
+  getCurrentTime: () => number;
+  // 获取音频总时长（秒）
+  getDuration: () => number;
+  // 获取当前播放状态
+  getPlaying: () => boolean;
+}
+
 ```
 
 ### 3. 组件的主题使用
