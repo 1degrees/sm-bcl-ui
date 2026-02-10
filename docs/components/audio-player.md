@@ -8,7 +8,10 @@ AudioPlayer 是一个苹果风格的音频播放器组件，支持音频播放�
 
 ### 基本示例
 
-<preview path="@demo/AudioPlayer/src/app.vue" title="AudioPlayer 音频播放器" description="" />
+<preview path="@demo/AudioPlayer/src/base.vue" title="AudioPlayer 音频播放器" description="" />
+
+### 主调色调整
+<preview path="@demo/AudioPlayer/src/color.vue" title="AudioPlayer 音频播放器" description="" />
 
 ## API
 

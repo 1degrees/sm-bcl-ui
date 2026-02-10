@@ -1,5 +1,6 @@
 // 导出所有组件
 import AudioPlayer from './components/AudioPlayer/index.vue'
+import AIAssistant from './components/AIAssistant/index.vue'
 import type { Component } from 'vue'
 
 // 导出样式
@@ -7,7 +8,8 @@ import './styles/index.less'
 
 // 组件列表
 const components: Record<string, Component> = {
-  AudioPlayer
+  AudioPlayer,
+  AIAssistant
 }
 
 // 安装函数
@@ -24,4 +26,5 @@ export default {
 }
 
 // 单独导出组件
-export { AudioPlayer }
+export { AudioPlayer, AIAssistant }
+export * from './components/AIAssistant/types'

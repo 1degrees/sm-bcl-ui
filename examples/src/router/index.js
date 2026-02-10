@@ -9,6 +9,11 @@ const routes = [
         path: '/audio-player',
         component: () => import('@sandboxes/AudioPlayer/src/app.vue')
       },
+      {
+        name: 'AIAssistant',
+        path: '/ai-assistant',
+        component: () => import('@sandboxes/AIAssistant/src/app.vue')
+      },
     ]
   }
 ]
