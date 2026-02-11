@@ -12,6 +12,7 @@
 - 🎯 基于业务场景的专用组件
 - 🛠️ 灵活的主题定制能力
 - 📱 响应式设计，适配不同设备
+- 🌍 国际化支持，内置中英文语言包
 
 ## 🚀 项目启动步骤
 
@@ -145,9 +146,9 @@ export interface AudioPlayerInstance {
 
 ```
 
-### 3. 组件的主题使用
+### 3. 组件的如何定义主题
 
-组件库使用 Less 预处理器和变量系统实现主题定制能力。
+组件库使用 css 变量系统完成主题定制能力。
 
 #### 3.1 组件主题变量token定义
 eg: audio-player
@@ -244,6 +245,86 @@ export default {
 
 export { AudioPlayer };
 export * from './components/AudioPlayer/types';
+```
+
+### 5. 组件的国际化支持
+
+组件库内置了国际化支持，使用 Vue I18n 实现，默认提供中英文语言包。
+
+#### 5.1 国际化文件结构
+
+```
+src/utils/i18n/
+├── cn.ts      # 中文语言包
+├── en.ts      # 英文语言包
+└── index.ts   # 国际化配置和初始化
+```
+
+#### 5.2 语言包示例
+
+##### 中文语言包（cn.ts）
+
+```typescript
+export default {
+  assistant: {
+    title: 'AI 小助手',
+    send: '发送'
+  },
+  audioPlayer: {
+    title: '音频播放器',
+    artist: '艺术家'
+  }
+};
+```
+
+##### 英文语言包（en.ts）
+
+```typescript
+export default {
+  assistant: {
+    title: 'AI Assistant',
+    send: 'Send'
+  },
+  audioPlayer: {
+    title: 'Audio Player',
+    artist: 'Artist'
+  }
+};
+```
+
+#### 5.3 在项目中使用国际化
+
+```vue
+<template>
+  <div class="ai-assistant">
+    <h2>{{ t('assistant.title') }}</h2>
+    <button>{{ t('assistant.send') }}</button>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { initI18n, i18n } from '@xfsm/bcl-ui';
+const { en, cn } = i18n;
+// 重置组件库国际化配置, 添加日语语言包
+initI18n({en, cn, ja: { assistant: { title: 'AI アシスタント', send: '送信' }}});
+
+// 在组件或方法中使用国际化
+const { t } = i18n.global;
+t('assistant.title')
+</script>
+```
+#### 5.4 切换语言
+
+```typescript
+import { i18n } from '@xfsm/bcl-ui';
+
+const { locale } = i18n.global;
+
+// 切换到英文
+locale.value = 'en';
+
+// 切换到中文
+locale.value = 'cn';
 ```
 
 ## 🎨 代码风格规范
