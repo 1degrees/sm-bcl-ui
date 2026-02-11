@@ -27,4 +27,9 @@ export default {
 
 // 单独导出组件
 export { AudioPlayer, AIAssistant }
-export * from './components/AIAssistant/types'
+
+// 导出工具函数
+export * from './utils'
+
+// 导出类型定义
+export * from './types'

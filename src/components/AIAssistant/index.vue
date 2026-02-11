@@ -180,7 +180,7 @@
           :disabled="!inputValue.trim() || disabled || isLoading"
           @click="handleSendMessage"
         >
-          发送
+          {{t('assistant.send')}}
         </button>
       </slot>
     </div>
@@ -188,8 +188,10 @@
 </template>
 
 <script setup lang="ts">
+import { i18n } from '../../utils'
 import { ref, onMounted, watch, nextTick } from 'vue';
 import type { AIAssistantProps, AIAssistantEmits, AIAssistantInstance } from './types';
+const { t } = i18n.global
 
 // 定义 Props
 const props = withDefaults(defineProps<AIAssistantProps>(), {

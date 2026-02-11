@@ -2,6 +2,7 @@
 import AudioPlayer from './index.vue'
 import type { AudioPlayerProps, AudioPlayerEvents, AudioPlayerInstance } from './types'
 import './index.less'
+export { i18n } from 'src/utils';
 
 export { AudioPlayer }
 export type { AudioPlayerProps, AudioPlayerEvents, AudioPlayerInstance }

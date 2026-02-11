@@ -37,10 +37,10 @@
     <!-- 音频信息 -->
     <div class="audio-info">
       <h3 class="audio-title">
-        {{ title || '未知标题' }}
+        {{ t('audioPlayer.title') || '未知标题' }}
       </h3>
       <p class="audio-artist">
-        {{ artist || '未知艺术家' }}
+        {{ t('audioPlayer.artist') || '未知艺术家' }}
       </p>
     </div>
 
@@ -197,11 +197,13 @@
 </template>
 
 <script setup lang="ts">
+import { i18n } from '../../utils'
 import { ref, onMounted, onUnmounted, watch, defineExpose } from 'vue'
 import type { AudioPlayerProps, AudioPlayerInstance } from './types'
+const { t } = i18n.global
 // Props
 const props = withDefaults(defineProps<AudioPlayerProps>(), {
-  title: '',
+  title: '音频播放器',
   artist: '',
   cover: '',
   autoplay: false,
