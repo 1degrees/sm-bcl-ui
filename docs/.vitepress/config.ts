@@ -41,18 +41,22 @@ export default defineConfig({
           link: '/components/overview'
         },
         {
-          text: '多媒体',
+          text: '全部',
           items: [
             {
               text: 'AudioPlayer 音频播放',
               link: '/components/audio-player'
             },
             {
+              text: 'AIAssistant AI 小助手',
+              link: '/components/ai-assistant'
+            },
+            {
               text: 'VgsAudio 波形音频',
               link: '/components/vgs-audio'
-            }
+            },
           ]
-        },
+        }
       ],
     },
     socialLinks: [
